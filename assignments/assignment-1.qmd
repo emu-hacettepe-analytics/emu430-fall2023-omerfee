@@ -4,12 +4,34 @@ title: "Assignment 1"
 
 # Assignment 1
 
-```{r}
-1 + 1
-```
-
-My first assignment has two parts.
+My first assignment has three parts.
 
 ## (a)
 
+```{r}
+
+```
+
 ## (b)
+
+
+## (c)
+
+```{r}
+library(dslabs)
+data(na_example)
+
+print("na_example data set:")
+na_example
+
+sprintf("Number of NAs in na_example data set. %d:", sum(is.na(na_example)))
+
+
+print("Without NAs")
+data <- na_example
+data[is.na(data)] <-0
+data
+
+sprintf("Number of NAs in new dataset. %d:", sum(is.na(data)))
+
+```

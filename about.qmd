@@ -3,28 +3,35 @@ title: "About Me"
 sidebar: false 
 ---
 
+Hey there! I'm Ömer Faruk Çiftçi, a fourth-year industrial engineering student diving headfirst into the world of data science. Currently donning the hat of an associate data scientist at this super cool analytics startup, I'm all about turning raw data into actionable insights. Balancing the world of academia and the startup hustle, I'm on a mission to apply my engineering skills to real-world problems. Let's crunch some numbers and make sense of the data-driven chaos!
+
+You can download my resume [here.](OmerFarukCiftci_Resume.pdf)
+
 # Education
 
--   B.S., Industrial Engineering, Hacettepe University, Turkey, 20xx - ongoing.
+-   B.S., Industrial Engineering, Hacettepe University, Turkey, 2018 - ongoing.
 
 # Work Experience
 
 ## Employements
 
-1.  Firm xxx, position xx, year xxx
-
-2.  Firm yyy, position yyy, year yyy
+1.  Algopoly, position Associate Data Scientist, 2022 - ongoing
 
 ## Internships
 
-1.  Firm aaa, position xx, year xxx
+1.  Intertech Information Technology and Marketing Inc, position Business Analyst Intern, 2022
 
-2.  Firm bbb, position yyy, year yyy
+2.  Algopoly, position Data Science Intern, 2022
+
+3.  Grispi, position Product Management Intern, 2021
+
+4.  Airmeet, position Growth Marketing Intern, 2021
 
 # Projects
+
+1.  Turkish Aerospace Lift-Up Graduation Project - "Demand Correlation Analysis, Storage Assignment, Vehicle Route Planning", SEP 2023 - Present
 
 # Competencies
 
 R, Quarto, Git, Python
 
-# Hobbies
