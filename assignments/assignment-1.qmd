@@ -2,19 +2,42 @@
 title: "Assignment 1"
 ---
 
-# Assignment 1
-
 My first assignment has three parts.
 
 ## (a)
+### [Tutorial](https://www.youtube.com/watch?v=t8qtcDyCRFA&list=PL9HYL-VRX0oTOK4cpbCbRk15K2roEgzVW&index=13)
 
-```{r}
-
-```
+The tutorial outlines the process of building a blog with Quarto Pub from the ground up. It entails initiating a new project and directory within the RStudio IDE, conducting blog tests, and ultimately deploying it to the web through Quarto CLI. The author furnishes comprehensive, step-by-step guidance on publishing the blog to Quarto Pub. The tutorial wraps up with a prompt to explore additional resources at quarto-dot-org for a more in-depth understanding of utilizing Quarto as a computational notebook.
 
 ## (b)
+### 3 Difference with Python and Posit
 
+1. Python and Posit (currently R) has different sytanx(the structure of statements in a computer language).
 
+    for loop example in Python:
+    
+      ```
+      for i in range(10):
+        print(i)
+      ```
+    
+    for loop example in R:
+    
+      ```
+      for (i in 0:9) {
+        print(i)
+      }
+      ```
+2. Python is an object-oriented programming language but R is a functional programming language.
+
+      [Object-Oriented Programming Language Python](https://www.w3schools.com/python/python_classes.asp#:~:text=Python%20is%20an%20object%20oriented,%22blueprint%22%20for%20creating%20objects.)
+      
+      [Functional Programming Language R](http://adv-r.had.co.nz/Functional-programming.html#:~:text=R%2C%20at%20its%20heart%2C%20is,known%20as%20first%20class%20functions.)
+  
+3. Python is a general-purpose programming language while R is a statistical programming language.
+      
+      [Article link is here.](https://www.datacamp.com/blog/python-vs-r-for-data-science-whats-the-difference#:~:text=What%20is%20the%20main%20difference,data%20manipulation%2C%20and%20machine%20learning.)
+      
 ## (c)
 
 ```{r}

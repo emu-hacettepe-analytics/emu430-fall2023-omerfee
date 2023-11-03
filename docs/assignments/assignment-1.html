@@ -204,12 +204,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#assignment-1" id="toc-assignment-1" class="nav-link active" data-scroll-target="#assignment-1">Assignment 1</a>
+  <li><a href="#a" id="toc-a" class="nav-link active" data-scroll-target="#a">(a)</a>
   <ul class="collapse">
-  <li><a href="#a" id="toc-a" class="nav-link" data-scroll-target="#a">(a)</a></li>
-  <li><a href="#b" id="toc-b" class="nav-link" data-scroll-target="#b">(b)</a></li>
-  <li><a href="#c" id="toc-c" class="nav-link" data-scroll-target="#c">(c)</a></li>
+  <li><a href="#tutorial" id="toc-tutorial" class="nav-link" data-scroll-target="#tutorial">Tutorial</a></li>
   </ul></li>
+  <li><a href="#b" id="toc-b" class="nav-link" data-scroll-target="#b">(b)</a>
+  <ul class="collapse">
+  <li><a href="#difference-with-python-and-posit" id="toc-difference-with-python-and-posit" class="nav-link" data-scroll-target="#difference-with-python-and-posit">3 Difference with Python and Posit</a></li>
+  </ul></li>
+  <li><a href="#c" id="toc-c" class="nav-link" data-scroll-target="#c">(c)</a></li>
   </ul>
 </nav>
 </nav>
@@ -237,20 +240,34 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<section id="assignment-1" class="level1">
-<h1>Assignment 1</h1>
 <p>My first assignment has three parts.</p>
 <section id="a" class="level2">
 <h2 class="anchored" data-anchor-id="a">(a)</h2>
+<section id="tutorial" class="level3">
+<h3 class="anchored" data-anchor-id="tutorial"><a href="https://www.youtube.com/watch?v=t8qtcDyCRFA&amp;list=PL9HYL-VRX0oTOK4cpbCbRk15K2roEgzVW&amp;index=13">Tutorial</a></h3>
+<p>The tutorial outlines the process of building a blog with Quarto Pub from the ground up. It entails initiating a new project and directory within the RStudio IDE, conducting blog tests, and ultimately deploying it to the web through Quarto CLI. The author furnishes comprehensive, step-by-step guidance on publishing the blog to Quarto Pub. The tutorial wraps up with a prompt to explore additional resources at quarto-dot-org for a more in-depth understanding of utilizing Quarto as a computational notebook.</p>
+</section>
 </section>
 <section id="b" class="level2">
 <h2 class="anchored" data-anchor-id="b">(b)</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 2</code></pre>
-</div>
-</div>
+<section id="difference-with-python-and-posit" class="level3">
+<h3 class="anchored" data-anchor-id="difference-with-python-and-posit">3 Difference with Python and Posit</h3>
+<ol type="1">
+<li><p>Python and Posit (currently R) has different sytanx(the structure of statements in a computer language).</p>
+<p>for loop example in Python:</p>
+<pre><code>for i in range(10):
+  print(i)</code></pre>
+<p>for loop example in R:</p>
+<pre><code>for (i in 0:9) {
+  print(i)
+}</code></pre></li>
+<li><p>Python is an object-oriented programming language but R is a functional programming language.</p>
+<p><a href="https://www.w3schools.com/python/python_classes.asp#:~:text=Python%20is%20an%20object%20oriented,%22blueprint%22%20for%20creating%20objects.">Object-Oriented Programming Language Python</a></p>
+<p><a href="http://adv-r.had.co.nz/Functional-programming.html#:~:text=R%2C%20at%20its%20heart%2C%20is,known%20as%20first%20class%20functions.">Functional Programming Language R</a></p></li>
+<li><p>Python is a general-purpose programming language while R is a statistical programming language.</p>
+<p><a href="https://www.datacamp.com/blog/python-vs-r-for-data-science-whats-the-difference#:~:text=What%20is%20the%20main%20difference,data%20manipulation%2C%20and%20machine%20learning.">Article link is here.</a></p></li>
+</ol>
+</section>
 </section>
 <section id="c" class="level2">
 <h2 class="anchored" data-anchor-id="c">(c)</h2>
@@ -355,7 +372,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 
 
-</section>
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->

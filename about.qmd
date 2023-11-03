@@ -3,29 +3,29 @@ title: "About Me"
 sidebar: false 
 ---
 
-Hey there! I'm Ömer Faruk Çiftçi, a fourth-year industrial engineering student diving headfirst into the world of data science. Currently donning the hat of an associate data scientist at this super cool analytics startup, I'm all about turning raw data into actionable insights. Balancing the world of academia and the startup hustle, I'm on a mission to apply my engineering skills to real-world problems. Let's crunch some numbers and make sense of the data-driven chaos!
+Hey there! I'm Ömer Faruk Çiftçi, a fourth-year industrial engineering student diving headfirst into the world of data science. Currently donning the hat of an associate data scientist at [Algopoly](https://www.algopoly.com/), I'm all about turning raw data into actionable insights. Balancing the world of academia and the startup hustle, I'm on a mission to apply my engineering skills to real-world problems. Let's crunch some numbers and make sense of the data-driven chaos!
 
 You can download my resume [here.](OmerFarukCiftci_Resume.pdf)
 
 # Education
 
--   B.S., Industrial Engineering, Hacettepe University, Turkey, 2018 - ongoing.
+-   B.S., Industrial Engineering, Hacettepe University, Turkey, 2018 - Present
 
 # Work Experience
 
 ## Employements
 
-1.  Algopoly, position Associate Data Scientist, 2022 - ongoing
+1.  Algopoly, Associate Data Scientist, 2022 - Present
 
 ## Internships
 
-1.  Intertech Information Technology and Marketing Inc, position Business Analyst Intern, 2022
+1.  Intertech Information Technology and Marketing Inc, Business Analyst Intern, 2022
 
-2.  Algopoly, position Data Science Intern, 2022
+2.  Algopoly, Data Science Intern, 2022
 
-3.  Grispi, position Product Management Intern, 2021
+3.  Grispi, Product Management Intern, 2021
 
-4.  Airmeet, position Growth Marketing Intern, 2021
+4.  Airmeet, Growth Marketing Intern, 2021
 
 # Projects
 
