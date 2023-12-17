@@ -31,6 +31,8 @@ You can download my resume [here.](OmerFarukCiftci_Resume.pdf)
 
 1.  Turkish Aerospace Lift-Up Graduation Project - "Demand Correlation Analysis, Storage Assignment, Vehicle Route Planning", SEP 2023 - Present
 
+2.  EMU430 - Data Analytics Term Project, NOV 2023- Present
+
 # Competencies
 
 R, Quarto, Git, Python
