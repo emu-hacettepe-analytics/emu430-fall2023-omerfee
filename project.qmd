@@ -3,10 +3,10 @@ title: "Our Course Project"
 sidebar: false 
 ---
 
-I'm honored to be a member of the \[group name\] project team.
+I'm honored to be a member of the [Team Safe İstanbul](https://github.com/orgs/emu-hacettepe-analytics/teams/team_safe_istanbul) project team.
 
-Below, you'll find a brief summary of our project. To access a detailed project description, please go to [https://\[your-project-url\]](#0){.uri}.
+Below, you'll find a brief summary of our project. To access a detailed project description, please go to [https://emu-hacettepe-analytics.github.io/emu430-fall2023-team-team_safe_istanbul/](#0){.uri}.
 
 **Summary**
 
-\[provide a biref summary of your project\]
+Our objective is to compile a comprehensive report and identify the districts in Istanbul that are most susceptible to potential earthquakes. We aim to create an ordered priority list for neighborhoods and develop a risk map for Istanbul, taking geographical coordinates into account.

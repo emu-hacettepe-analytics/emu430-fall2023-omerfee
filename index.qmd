@@ -5,6 +5,10 @@ sidebar: false
 
 Hello! My name is Ömer.
 
-This is my personal webpage.
+This is my personal webpage for EMU430 - Data Analytics course from fall 2023-2024.
+
+You can reach my personal website using this [link.](https://omerfarukciftci.dev)
+
+I am planning to use the web page whose link I provided above for my professional life. In the future, I intend to share articles on data science, machine learning, optimization, and analytical thinking on this page. In addition, I have been writing various essays on life, failure, the past-future relationship, and my observations for a long time. If I gather the courage one day, I also plan to share them here.
 
 Please stay tuned to follow my works on data analytics, blog posts, and more.
