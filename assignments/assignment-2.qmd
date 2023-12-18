@@ -7,8 +7,9 @@ format:
     code-summary: "Show the code"
 ---
 
-
-```{r}
+### Question 1
+Loading packages and creating url vector.
+```{r, message=FALSE}
 
 library(tidyverse)
 library(stringr)
@@ -21,7 +22,9 @@ url_vector <- c(URL_1,URL_2)
 
 ```
 
-```{r}
+### Question 2
+Web scraping.
+```{r,message=FALSE}
 
 
 movie_titles <- c()
@@ -58,10 +61,18 @@ for(url in url_vector){
   }else{
     end_index <- end_index <- regexpr("h", string)
     result <- substr(string, start_index, end_index)
-    duration <- append(duration, result)
-  }
-
-  }
+    duration <- append(duration, result)}}
+  
+  hour_duration <- str_split(duration, " ")
+  hour_duration <- sapply(hour_duration, '[', 1)
+  hour_duration <- sub("h", "", hour_duration)
+  hour_duration <- as.numeric(hour_duration)
+  hour_duration <- hour_duration * 60
+  
+  minute_duration <- str_split(duration, " ")
+  minute_duration <- sapply(minute_duration, function(x) ifelse(length(x) >= 2, x[2], 0))
+  minute_duration <- sub("m", "", minute_duration)
+  minute_duration <- as.numeric(minute_duration)
   
   rating <- HTML %>% html_nodes(".ipc-rating-star.ipc-rating-star--base.ipc-rating-star--imdb.ratingGroup--imdb-rating")
   rating <- html_text(rating)
@@ -76,12 +87,11 @@ for(url in url_vector){
   
   movie_titles <- append(movie_titles,title_names)
   movie_years <- append(movie_years, year)
-  movie_durations <- append(movie_durations, duration)
+  movie_durations <- append(movie_durations, hour_duration + minute_duration)
   movie_ratings <- append(movie_ratings, rating)
   movie_votes <- append(movie_votes, vote)
   
 }
 
 movies_df <- data.frame(movie_titles, movie_years, movie_durations, movie_ratings, movie_votes)
-
 ```
