@@ -8,8 +8,6 @@ format:
 ---
 
 
-# Assignment 2
-
 ```{r}
 
 library(tidyverse)
