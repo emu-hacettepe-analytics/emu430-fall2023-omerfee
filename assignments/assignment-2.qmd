@@ -1,9 +1,81 @@
 ---
 title: "Assignment 2"
+
+format:
+  html:
+    code-fold: true
+    code-summary: "Show the code"
 ---
+
 
 # Assignment 2
 
 ```{r}
-1 + 1
+
+library(tidyverse)
+library(stringr)
+library(rvest)
+
+URL_1 <- "https://www.imdb.com/search/title/?title_type=feature&release_date=0010-01-01,2023-12-31&num_votes=2500,&country_of_origin=TR&count=250"
+URL_2 <- "https://www.imdb.com/search/title/?title_type=feature&release_date=,2009-12-31&num_votes=2500,&country_of_origin=TR&count=250"
+url_vector <- c(URL_1,URL_2)
+
+
+```
+
+```{r}
+
+
+movie_titles <- c()
+movie_years <- c()
+movie_durations <- c()
+movie_ratings <- c()
+movie_votes <- c()
+
+for(url in url_vector){
+  HTML = read_html(url)
+  
+  title_names <- HTML %>% html_nodes('.ipc-title__text')
+  title_names <- html_text(title_names)
+  title_names <- tail(head(title_names,-1),-1)
+  title_names <- str_split(title_names, " ", n=2)
+  title_names <- unlist(lapply(title_names, function(x) {x[2]}))
+  
+  year <- HTML %>% html_nodes(".sc-43986a27-7.dBkaPT.dli-title-metadata")
+  year <- html_text(year)
+  year <- substr(year, 1, 4)
+  
+  duration_trash <- HTML %>% html_nodes(".sc-43986a27-7.dBkaPT.dli-title-metadata")
+  duration_trash <- html_text(duration_trash)
+  duration <- c()
+  
+  for (string in duration_trash){
+  start_index <- 5
+  end_index <- regexpr("m", string)
+  result <- substr(string, start_index, end_index)
+  duration <- append(duration,result)
+  }
+  
+  rating <- HTML %>% html_nodes(".ipc-rating-star.ipc-rating-star--base.ipc-rating-star--imdb.ratingGroup--imdb-rating")
+  rating <- html_text(rating)
+  rating <- substr(rating, 1, 3)
+  
+  vote <- HTML %>% html_nodes(".sc-53c98e73-0.kRnqtn")
+  vote <- html_text(vote)
+  vote <- sub("Votes", "" ,vote)
+  
+  movie_titles <- append(movie_titles,title_names)
+  movie_years <- append(movie_years, year)
+  movie_durations <- append(movie_durations, duration)
+  movie_ratings <- append(movie_ratings, rating)
+  movie_votes <- append(movie_votes, vote)
+
+  
+  
+}
+
+
+
+
+
 ```
