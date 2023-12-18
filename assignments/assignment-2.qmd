@@ -42,6 +42,7 @@ for(url in url_vector){
   year <- HTML %>% html_nodes(".sc-43986a27-7.dBkaPT.dli-title-metadata")
   year <- html_text(year)
   year <- substr(year, 1, 4)
+  year <- as.numeric(year)
   
   duration_trash <- HTML %>% html_nodes(".sc-43986a27-7.dBkaPT.dli-title-metadata")
   duration_trash <- html_text(duration_trash)
@@ -65,10 +66,13 @@ for(url in url_vector){
   rating <- HTML %>% html_nodes(".ipc-rating-star.ipc-rating-star--base.ipc-rating-star--imdb.ratingGroup--imdb-rating")
   rating <- html_text(rating)
   rating <- substr(rating, 1, 3)
+  rating <- as.numeric(rating)
   
   vote <- HTML %>% html_nodes(".sc-53c98e73-0.kRnqtn")
   vote <- html_text(vote)
   vote <- sub("Votes", "" ,vote)
+  vote <- sub(",", "", vote)
+  vote <- as.numeric(vote)
   
   movie_titles <- append(movie_titles,title_names)
   movie_years <- append(movie_years, year)
@@ -79,8 +83,5 @@ for(url in url_vector){
 }
 
 movies_df <- data.frame(movie_titles, movie_years, movie_durations, movie_ratings, movie_votes)
-
-
-
 
 ```
