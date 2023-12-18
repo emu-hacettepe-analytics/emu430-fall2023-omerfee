@@ -57,8 +57,8 @@ for(url in url_vector){
   if(grepl("m", string, fixed = TRUE)){
     end_index <- regexpr("m", string)
     result <- substr(string, start_index, end_index)
-    duration <- append(duration,result)
-  }else{
+    duration <- append(duration,result)}
+  else{
     end_index <- end_index <- regexpr("h", string)
     result <- substr(string, start_index, end_index)
     duration <- append(duration, result)}}
