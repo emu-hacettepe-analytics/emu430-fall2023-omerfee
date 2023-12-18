@@ -49,9 +49,17 @@ for(url in url_vector){
   
   for (string in duration_trash){
   start_index <- 5
-  end_index <- regexpr("m", string)
-  result <- substr(string, start_index, end_index)
-  duration <- append(duration,result)
+  
+  if(grepl("m", string, fixed = TRUE)){
+    end_index <- regexpr("m", string)
+    result <- substr(string, start_index, end_index)
+    duration <- append(duration,result)
+  }else{
+    end_index <- end_index <- regexpr("h", string)
+    result <- substr(string, start_index, end_index)
+    duration <- append(duration, result)
+  }
+
   }
   
   rating <- HTML %>% html_nodes(".ipc-rating-star.ipc-rating-star--base.ipc-rating-star--imdb.ratingGroup--imdb-rating")
@@ -67,11 +75,10 @@ for(url in url_vector){
   movie_durations <- append(movie_durations, duration)
   movie_ratings <- append(movie_ratings, rating)
   movie_votes <- append(movie_votes, vote)
-
-  
   
 }
 
+movies_df <- data.frame(movie_titles, movie_years, movie_durations, movie_ratings, movie_votes)
 
 
 
