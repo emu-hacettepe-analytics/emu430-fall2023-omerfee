@@ -205,6 +205,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
   <li><a href="#question-1" id="toc-question-1" class="nav-link active" data-scroll-target="#question-1">Question 1</a></li>
   <li><a href="#question-2" id="toc-question-2" class="nav-link" data-scroll-target="#question-2">Question 2</a></li>
+  <li><a href="#question-3" id="toc-question-3" class="nav-link" data-scroll-target="#question-3">Question 3</a></li>
   </ul>
 </nav>
 </nav>
@@ -234,24 +235,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="question-1" class="level3">
 <h3 class="anchored" data-anchor-id="question-1">Question 1</h3>
-<p>Loading packages and creating url vector.</p>
-<div class="cell">
+<blockquote class="blockquote">
+<p><em>Using the filters on https://m.imdb.com/search, list all Turkish movies with more than 2500 reviews, and save the URLs.</em></p>
+</blockquote>
 <details>
 <summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stringr)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rvest)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>URL_1 <span class="ot">&lt;-</span> <span class="st">"https://www.imdb.com/search/title/?title_type=feature&amp;release_date=0010-01-01,2023-12-31&amp;num_votes=2500,&amp;country_of_origin=TR&amp;count=250"</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>URL_2 <span class="ot">&lt;-</span> <span class="st">"https://www.imdb.com/search/title/?title_type=feature&amp;release_date=,2009-12-31&amp;num_votes=2500,&amp;country_of_origin=TR&amp;count=250"</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>url_vector <span class="ot">&lt;-</span> <span class="fu">c</span>(URL_1,URL_2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>URL_1 <span class="ot">&lt;-</span> <span class="st">"https://www.imdb.com/search/title/?title_type=feature&amp;release_date=0010-01-01,2023-12-31&amp;num_votes=2500,&amp;country_of_origin=TR&amp;count=250"</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>URL_2 <span class="ot">&lt;-</span> <span class="st">"https://www.imdb.com/search/title/?title_type=feature&amp;release_date=,2009-12-31&amp;num_votes=2500,&amp;country_of_origin=TR&amp;count=250"</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>url_vector <span class="ot">&lt;-</span> <span class="fu">c</span>(URL_1,URL_2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-</div>
 </section>
 <section id="question-2" class="level3">
 <h3 class="anchored" data-anchor-id="question-2">Question 2</h3>
-<p>Web scraping.</p>
-<div class="cell">
+<blockquote class="blockquote">
+<p><em>Start web scrapping to create a Data Frame with columns: Title, Year, Duration, Rating, Votes</em></p>
+</blockquote>
 <details>
 <summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>movie_titles <span class="ot">&lt;-</span> <span class="fu">c</span>()</span>
@@ -320,11 +324,437 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-64"><a href="#cb2-64" aria-hidden="true" tabindex="-1"></a>  </span>
 <span id="cb2-65"><a href="#cb2-65" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb2-66"><a href="#cb2-66" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-67"><a href="#cb2-67" aria-hidden="true" tabindex="-1"></a>movies_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(movie_titles, movie_years, movie_durations, movie_ratings, movie_votes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-67"><a href="#cb2-67" aria-hidden="true" tabindex="-1"></a>movies_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(movie_titles, movie_years, movie_durations, movie_ratings, movie_votes)</span>
+<span id="cb2-68"><a href="#cb2-68" aria-hidden="true" tabindex="-1"></a>movies_df <span class="ot">&lt;-</span> movies_df[<span class="sc">!</span><span class="fu">duplicated</span>(movies_df),]</span>
+<span id="cb2-69"><a href="#cb2-69" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">head</span>(movies_df,<span class="dv">10</span>), <span class="at">caption =</span> <span class="st">"Movies Dataframe"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
+<div class="cell-output-display">
+<table class="table">
+<caption>Movies Dataframe</caption>
+<colgroup>
+<col style="width: 31%">
+<col style="width: 15%">
+<col style="width: 20%">
+<col style="width: 17%">
+<col style="width: 15%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">movie_titles</th>
+<th style="text-align: right;">movie_years</th>
+<th style="text-align: right;">movie_durations</th>
+<th style="text-align: right;">movie_ratings</th>
+<th style="text-align: right;">movie_votes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Istanbul Için Son Çagri</td>
+<td style="text-align: right;">2023</td>
+<td style="text-align: right;">91</td>
+<td style="text-align: right;">5.4</td>
+<td style="text-align: right;">6953</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Kuru Otlar Üstüne</td>
+<td style="text-align: right;">2023</td>
+<td style="text-align: right;">197</td>
+<td style="text-align: right;">8.1</td>
+<td style="text-align: right;">4900</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Ölümlü Dünya 2</td>
+<td style="text-align: right;">2023</td>
+<td style="text-align: right;">117</td>
+<td style="text-align: right;">7.5</td>
+<td style="text-align: right;">3000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Bihter</td>
+<td style="text-align: right;">2023</td>
+<td style="text-align: right;">113</td>
+<td style="text-align: right;">3.6</td>
+<td style="text-align: right;">3254</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Ölümlü Dünya</td>
+<td style="text-align: right;">2018</td>
+<td style="text-align: right;">107</td>
+<td style="text-align: right;">7.6</td>
+<td style="text-align: right;">30072</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Yedinci Kogustaki Mucize</td>
+<td style="text-align: right;">2019</td>
+<td style="text-align: right;">132</td>
+<td style="text-align: right;">8.2</td>
+<td style="text-align: right;">54044</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Do Not Disturb</td>
+<td style="text-align: right;">2023</td>
+<td style="text-align: right;">114</td>
+<td style="text-align: right;">6.3</td>
+<td style="text-align: right;">8654</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Kis Uykusu</td>
+<td style="text-align: right;">2014</td>
+<td style="text-align: right;">196</td>
+<td style="text-align: right;">8.0</td>
+<td style="text-align: right;">54565</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Kurak Günler</td>
+<td style="text-align: right;">2022</td>
+<td style="text-align: right;">129</td>
+<td style="text-align: right;">7.6</td>
+<td style="text-align: right;">11078</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Bir Zamanlar Anadolu’da</td>
+<td style="text-align: right;">2011</td>
+<td style="text-align: right;">157</td>
+<td style="text-align: right;">7.8</td>
+<td style="text-align: right;">49285</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="question-3" class="level3">
+<h3 class="anchored" data-anchor-id="question-3">Question 3</h3>
+<blockquote class="blockquote">
+<ol type="a">
+<li><blockquote class="blockquote">
+<p><em>Arrange your data frame in descending order by Rating. Present the top 5 and bottom 5 movies based on user ratings. Have you watched any of these movies? Do you agree or disagree with their current IMDb Ratings?</em></p>
+</blockquote></li>
+</ol>
+</blockquote>
+<details>
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>movies_df <span class="ot">&lt;-</span> movies_df[<span class="fu">order</span>(movies_df<span class="sc">$</span>movie_ratings, <span class="at">decreasing =</span> <span class="cn">TRUE</span>),]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<section id="top-5-movies-based-on-user-ratings." class="level5">
+<h5 class="anchored" data-anchor-id="top-5-movies-based-on-user-ratings.">Top 5 movies based on user ratings.</h5>
+<details>
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">head</span>(movies_df, <span class="dv">5</span>), <span class="at">caption =</span> <span class="st">"Top 5 Movies Based On User Ratings."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<table class="table">
+<caption>Top 5 Movies Based On User Ratings.</caption>
+<colgroup>
+<col style="width: 4%">
+<col style="width: 33%">
+<col style="width: 13%">
+<col style="width: 18%">
+<col style="width: 16%">
+<col style="width: 13%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: left;">movie_titles</th>
+<th style="text-align: right;">movie_years</th>
+<th style="text-align: right;">movie_durations</th>
+<th style="text-align: right;">movie_ratings</th>
+<th style="text-align: right;">movie_votes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">43</td>
+<td style="text-align: left;">Hababam Sinifi</td>
+<td style="text-align: right;">1975</td>
+<td style="text-align: right;">87</td>
+<td style="text-align: right;">9.2</td>
+<td style="text-align: right;">42482</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">44</td>
+<td style="text-align: left;">CM101MMXI Fundamentals</td>
+<td style="text-align: right;">2013</td>
+<td style="text-align: right;">139</td>
+<td style="text-align: right;">9.1</td>
+<td style="text-align: right;">46984</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">143</td>
+<td style="text-align: left;">Tosun Pasa</td>
+<td style="text-align: right;">1976</td>
+<td style="text-align: right;">90</td>
+<td style="text-align: right;">8.9</td>
+<td style="text-align: right;">24309</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">239</td>
+<td style="text-align: left;">Hababam Sinifi Sinifta Kaldi</td>
+<td style="text-align: right;">1975</td>
+<td style="text-align: right;">95</td>
+<td style="text-align: right;">8.9</td>
+<td style="text-align: right;">24347</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">155</td>
+<td style="text-align: left;">Süt Kardesler</td>
+<td style="text-align: right;">1976</td>
+<td style="text-align: right;">80</td>
+<td style="text-align: right;">8.8</td>
+<td style="text-align: right;">20870</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>I disagree with the top parts of this list created based on the scores given by the users. In my opinion, films are created by transferring comments made on certain events, problems or situations to cinema. Therefore, I think that “Yeşil Çam” cinema is overrated too much, the emotions that are intended to be told in the films made by “Yeşil Çam” are unnecessary. There are much better directors today and much better films are being made, but they cannot get such high scores.</p>
+</section>
+<section id="bottom-5-movies-based-on-user-ratings." class="level5">
+<h5 class="anchored" data-anchor-id="bottom-5-movies-based-on-user-ratings.">Bottom 5 movies based on user ratings.</h5>
+<details>
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">tail</span>(movies_df, <span class="dv">5</span>), <span class="at">caption =</span> <span class="st">"Bottom 5 Movies Based On User Ratings."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<table class="table">
+<caption>Bottom 5 Movies Based On User Ratings.</caption>
+<colgroup>
+<col style="width: 4%">
+<col style="width: 34%">
+<col style="width: 13%">
+<col style="width: 18%">
+<col style="width: 15%">
+<col style="width: 13%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: left;">movie_titles</th>
+<th style="text-align: right;">movie_years</th>
+<th style="text-align: right;">movie_durations</th>
+<th style="text-align: right;">movie_ratings</th>
+<th style="text-align: right;">movie_votes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">124</td>
+<td style="text-align: left;">Dünyayi Kurtaran Adam’in Oglu</td>
+<td style="text-align: right;">2006</td>
+<td style="text-align: right;">110</td>
+<td style="text-align: right;">1.5</td>
+<td style="text-align: right;">16699</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">381</td>
+<td style="text-align: left;">Keloglan Karaprens’e Karsi</td>
+<td style="text-align: right;">2006</td>
+<td style="text-align: right;">105</td>
+<td style="text-align: right;">1.5</td>
+<td style="text-align: right;">9574</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">421</td>
+<td style="text-align: left;">Emret Komutanim: Sah Mat</td>
+<td style="text-align: right;">2007</td>
+<td style="text-align: right;">100</td>
+<td style="text-align: right;">1.5</td>
+<td style="text-align: right;">7046</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">236</td>
+<td style="text-align: left;">Cumali Ceber 2</td>
+<td style="text-align: right;">2018</td>
+<td style="text-align: right;">100</td>
+<td style="text-align: right;">1.2</td>
+<td style="text-align: right;">10183</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">104</td>
+<td style="text-align: left;">Reis</td>
+<td style="text-align: right;">2017</td>
+<td style="text-align: right;">108</td>
+<td style="text-align: right;">1.0</td>
+<td style="text-align: right;">73966</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Definitely I agree with the bottom part of this list but I can’t explain why. :) :D</p>
+<blockquote class="blockquote">
+<ol start="2" type="a">
+<li><blockquote class="blockquote">
+<p><em>Check the ratings of 2-3 of your favorite movies. What are their standings?</em></p>
+</blockquote></li>
+</ol>
+</blockquote>
+</section>
+<section id="my-top-10-list-is-below" class="level5">
+<h5 class="anchored" data-anchor-id="my-top-10-list-is-below">My top 10 list is below:</h5>
+<ol type="1">
+<li><a href="https://www.imdb.com/title/tt0476735/">Babam ve Oğlum</a></li>
+<li><a href="https://www.imdb.com/title/tt1051907/">Kabadayı</a></li>
+<li><a href="https://www.imdb.com/title/tt1309178/">Bizim Büyük Çaresizliğimiz</a></li>
+<li><a href="https://www.imdb.com/title/tt1282139/">Devrim Arabaları</a></li>
+<li><a href="https://www.imdb.com/title/tt1373215/">Recep İvedik 2</a></li>
+<li><a href="https://www.imdb.com/title/tt0384116/">G.O.R.A</a></li>
+<li><a href="https://www.imdb.com/title/tt1523486">Kolpaçino</a></li>
+<li><a href="https://www.imdb.com/title/tt1668191/">Av Mevsimi</a></li>
+<li><a href="https://www.imdb.com/title/tt6214084">İşe Yarar Bir Şey</a></li>
+<li><a href="https://www.imdb.com/title/tt2905772">Sen Aydınlatırsın Geceyi</a></li>
+</ol>
+<p><em>Note: This list is not ordered. Please don’t judge me based on this order.</em> <br> <em>Note2: Yes! Recep İvedik 2 is still on the list of funniest movies for me, additionally you can also find the <a href="https://tr.wikipedia.org/wiki/Onur_%C3%9Cnl%C3%BC">Onur Ünlü’s</a> comments about Recep İvedik movies. <a href="https://www.youtube.com/watch?v=SxcO2d86OvE">Interview</a></em></p>
+</section>
+<section id="lets-check-the-ratings-of-babam-ve-oğlum-sen-aydınlatırsın-geceyi-and-işe-yarar-bir-şey." class="level5">
+<h5 class="anchored" data-anchor-id="lets-check-the-ratings-of-babam-ve-oğlum-sen-aydınlatırsın-geceyi-and-işe-yarar-bir-şey.">Let’s check the ratings of “Babam ve Oğlum”, “Sen Aydınlatırsın Geceyi” and “İşe Yarar Bir Şey”.</h5>
+<p><span style="background-color:yellow"><strong>Babam ve Oğlum</strong></span></p>
+<details>
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(movies_df[movies_df<span class="sc">$</span>movie_titles <span class="sc">==</span> <span class="st">"Babam ve Oglum"</span>,], <span class="at">caption =</span> <span class="st">"Babam ve Oğlum"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<table class="table">
+<caption>Babam ve Oğlum</caption>
+<colgroup>
+<col style="width: 4%">
+<col style="width: 20%">
+<col style="width: 16%">
+<col style="width: 22%">
+<col style="width: 19%">
+<col style="width: 16%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: left;">movie_titles</th>
+<th style="text-align: right;">movie_years</th>
+<th style="text-align: right;">movie_durations</th>
+<th style="text-align: right;">movie_ratings</th>
+<th style="text-align: right;">movie_votes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">15</td>
+<td style="text-align: left;">Babam ve Oglum</td>
+<td style="text-align: right;">2005</td>
+<td style="text-align: right;">108</td>
+<td style="text-align: right;">8.2</td>
+<td style="text-align: right;">90721</td>
+</tr>
+</tbody>
+</table>
+</div>
+<details>
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sprintf</span>(<span class="st">"Rank of the *Babam ve Oğlum* is %d"</span>, <span class="fu">which</span>(movies_df<span class="sc">$</span>movie_titles<span class="sc">==</span><span class="st">"Babam ve Oglum"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<p>[1] “Rank of the <em>Babam ve Oğlum</em> is 24”</p>
+<p><span style="background-color:yellow"><strong>İşe Yarar Bir Şey</strong></span></p>
+<details>
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(movies_df[movies_df<span class="sc">$</span>movie_titles <span class="sc">==</span> <span class="st">"Ise Yarar Bir Sey"</span>,], <span class="at">caption =</span> <span class="st">"İşe Yarar Bir Şey"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<table class="table">
+<caption>İşe Yarar Bir Şey</caption>
+<colgroup>
+<col style="width: 4%">
+<col style="width: 24%">
+<col style="width: 16%">
+<col style="width: 21%">
+<col style="width: 18%">
+<col style="width: 16%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: left;">movie_titles</th>
+<th style="text-align: right;">movie_years</th>
+<th style="text-align: right;">movie_durations</th>
+<th style="text-align: right;">movie_ratings</th>
+<th style="text-align: right;">movie_votes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">95</td>
+<td style="text-align: left;">Ise Yarar Bir Sey</td>
+<td style="text-align: right;">2017</td>
+<td style="text-align: right;">104</td>
+<td style="text-align: right;">7.6</td>
+<td style="text-align: right;">5495</td>
+</tr>
+</tbody>
+</table>
+</div>
+<details>
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sprintf</span>(<span class="st">"Rank of the *İşe Yarar Bir Şey* is %d"</span>, <span class="fu">which</span>(movies_df<span class="sc">$</span>movie_titles<span class="sc">==</span><span class="st">"Ise Yarar Bir Sey"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<p>[1] “Rank of the <em>İşe Yarar Bir Şey</em> is 85”</p>
+<p><span style="background-color:yellow"><strong>Sen Aydınlatırsın Geceyi</strong></span></p>
+<details>
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(movies_df[movies_df<span class="sc">$</span>movie_titles <span class="sc">==</span> <span class="st">"Sen Aydinlatirsin Geceyi"</span>,], <span class="at">caption =</span> <span class="st">"Sen Aydınlatırsın Geceyi"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<table class="table">
+<caption>Sen Aydınlatırsın Geceyi</caption>
+<colgroup>
+<col style="width: 4%">
+<col style="width: 30%">
+<col style="width: 14%">
+<col style="width: 19%">
+<col style="width: 16%">
+<col style="width: 14%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: left;">movie_titles</th>
+<th style="text-align: right;">movie_years</th>
+<th style="text-align: right;">movie_durations</th>
+<th style="text-align: right;">movie_ratings</th>
+<th style="text-align: right;">movie_votes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">123</td>
+<td style="text-align: left;">Sen Aydinlatirsin Geceyi</td>
+<td style="text-align: right;">2013</td>
+<td style="text-align: right;">107</td>
+<td style="text-align: right;">7.7</td>
+<td style="text-align: right;">10464</td>
+</tr>
+</tbody>
+</table>
+</div>
+<details>
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sprintf</span>(<span class="st">"Rank of the *Sen Aydınlatırsın Geceyi* is %d"</span>, <span class="fu">which</span>(movies_df<span class="sc">$</span>movie_titles<span class="sc">==</span><span class="st">"Sen Aydinlatirsin Geceyi"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<p>[1] “Rank of the <em>Sen Aydınlatırsın Geceyi</em> is 69”</p>
+<blockquote class="blockquote">
+<ol start="3" type="a">
+<li><blockquote class="blockquote">
+<p><em>Considering that audience rating is a crucial indicator of movie quality, what can</em> <em>you infer about the average ratings of Turkish movies over the years? Calculate yearly</em> <em>rating averages and plot them as a scatter plot. Similarly, plot the number of</em> <em>movies over the years. You might observe that using yearly averages could be misleading</em> <em>due to the increasing number of movies each year. As an alternative solution,</em> <em>plot box plots of ratings over the years (each year having a box plot showing statistics</em> <em>about the ratings of movies in that year). What insights do you gather from the box plot?</em></p>
+</blockquote></li>
+</ol>
+</blockquote>
+<div class="cell">
+<details>
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>movies_df[movies_df<span class="sc">$</span>movie_titles <span class="sc">==</span> <span class="st">"Ahlat Agaci"</span>,]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>   movie_titles movie_years movie_durations movie_ratings movie_votes
+12  Ahlat Agaci        2018             188             8       26917</code></pre>
+</div>
 </div>
 
 
+</section>
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->

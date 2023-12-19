@@ -8,12 +8,16 @@ format:
 ---
 
 ### Question 1
-Loading packages and creating url vector.
-```{r, message=FALSE}
+
+>*Using the filters on https://m.imdb.com/search, list all Turkish movies with more than 2500 reviews, and save the URLs.*
+
+```{r, message=FALSE, results='asis'}
 
 library(tidyverse)
 library(stringr)
 library(rvest)
+library(ggplot2)
+library(knitr)
 
 URL_1 <- "https://www.imdb.com/search/title/?title_type=feature&release_date=0010-01-01,2023-12-31&num_votes=2500,&country_of_origin=TR&count=250"
 URL_2 <- "https://www.imdb.com/search/title/?title_type=feature&release_date=,2009-12-31&num_votes=2500,&country_of_origin=TR&count=250"
@@ -23,8 +27,10 @@ url_vector <- c(URL_1,URL_2)
 ```
 
 ### Question 2
-Web scraping.
-```{r,message=FALSE}
+
+>*Start web scrapping to create a Data Frame with columns: Title, Year, Duration, Rating, Votes*
+
+```{r,message=FALSE, results='asis'}
 
 
 movie_titles <- c()
@@ -94,4 +100,85 @@ for(url in url_vector){
 }
 
 movies_df <- data.frame(movie_titles, movie_years, movie_durations, movie_ratings, movie_votes)
+movies_df <- movies_df[!duplicated(movies_df),]
+kable(head(movies_df,10), caption = "Movies Dataframe")
 ```
+
+### Question 3
+>a)
+>>*Arrange your data frame in descending order by Rating. Present the top 5 and bottom 5 movies based on user ratings. Have you watched any of these movies? Do you agree or disagree with their current IMDb Ratings?*
+
+```{r, message=FALSE, results='asis'}
+movies_df <- movies_df[order(movies_df$movie_ratings, decreasing = TRUE),]
+```
+##### Top 5 movies based on user ratings.
+```{r, message=FALSE, results='asis'}
+kable(head(movies_df, 5), caption = "Top 5 Movies Based On User Ratings.")
+```
+I disagree with the top parts of this list created based on the scores given by the users. In my opinion, films are created by transferring comments made on certain events, problems or situations to cinema. Therefore, I think that “Yeşil Çam” films are overrated too much, the emotions that are intended to be told in the films made by “Yeşil Çam” are unnecessary. There are much better directors today and much better films are being made, but they cannot get such high scores.
+
+##### Bottom 5 movies based on user ratings.
+```{r, message=FALSE, results='asis'}
+kable(tail(movies_df, 5), caption = "Bottom 5 Movies Based On User Ratings.")
+```
+Definitely I agree with the bottom part of this list but I can't explain why. :) :D
+
+>b)
+>> *Check the ratings of 2-3 of your favorite movies. What are their standings?*
+
+##### My top 10 list is below:
+
+1.  [Babam ve Oğlum](https://www.imdb.com/title/tt0476735/)
+2.  [Kabadayı](https://www.imdb.com/title/tt1051907/)
+3.  [Bizim Büyük Çaresizliğimiz](https://www.imdb.com/title/tt1309178/)
+4.  [Devrim Arabaları](https://www.imdb.com/title/tt1282139/)
+5.  [Recep İvedik 2](https://www.imdb.com/title/tt1373215/)
+6.  [G.O.R.A](https://www.imdb.com/title/tt0384116/)
+7.  [Kolpaçino](https://www.imdb.com/title/tt1523486)
+8.  [Av Mevsimi](https://www.imdb.com/title/tt1668191/)
+9.  [İşe Yarar Bir Şey](https://www.imdb.com/title/tt6214084)
+10. [Sen Aydınlatırsın Geceyi](https://www.imdb.com/title/tt2905772)
+
+*Note: This list is not ordered. Please don't judge me based on this order.*
+<br>
+*Note2: Yes! Recep İvedik 2 is still on the list of funniest movies for me, additionally you can also find the [Onur Ünlü's](https://tr.wikipedia.org/wiki/Onur_%C3%9Cnl%C3%BC) comments about Recep İvedik movies. [Interview](https://www.youtube.com/watch?v=SxcO2d86OvE)*
+
+##### Let's check the ratings of "Babam ve Oğlum", "Sen Aydınlatırsın Geceyi" and "İşe Yarar Bir Şey".
+
+<span style="background-color:yellow">**Babam ve Oğlum**</span>
+
+```{r, message=FALSE, results='asis'}
+kable(movies_df[movies_df$movie_titles == "Babam ve Oglum",], caption = "Babam ve Oğlum")
+sprintf("Rank of the *Babam ve Oğlum* is %d", which(movies_df$movie_titles=="Babam ve Oglum"))
+```
+
+<span style="background-color:yellow">**İşe Yarar Bir Şey**</span>
+```{r, message=FALSE, results='asis'}
+kable(movies_df[movies_df$movie_titles == "Ise Yarar Bir Sey",], caption = "İşe Yarar Bir Şey")
+sprintf("Rank of the *İşe Yarar Bir Şey* is %d", which(movies_df$movie_titles=="Ise Yarar Bir Sey"))
+```
+
+<span style="background-color:yellow">**Sen Aydınlatırsın Geceyi**</span>
+```{r, message=FALSE, results='asis'}
+kable(movies_df[movies_df$movie_titles == "Sen Aydinlatirsin Geceyi",], caption = "Sen Aydınlatırsın Geceyi")
+sprintf("Rank of the *Sen Aydınlatırsın Geceyi* is %d", which(movies_df$movie_titles=="Sen Aydinlatirsin Geceyi"))
+```
+
+>c)
+>>*Considering that audience rating is a crucial indicator of movie quality, what can*
+*you infer about the average ratings of Turkish movies over the years? Calculate yearly*
+*rating averages and plot them as a scatter plot. Similarly, plot the number of*
+*movies over the years. You might observe that using yearly averages could be misleading*
+*due to the increasing number of movies each year. As an alternative solution,*
+*plot box plots of ratings over the years (each year having a box plot showing statistics*
+*about the ratings of movies in that year). What insights do you gather from the box plot?*
+
+```{r, message=FALSE}
+movies_df[movies_df$movie_titles == "Ahlat Agaci",]
+```
+
+
+
+
+
+
