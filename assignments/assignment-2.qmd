@@ -353,4 +353,4 @@ Let's take a look at the movies dataframe, ordered by rankings.
 kable(head(movies_df,11), caption = "Movies Dataframe")
 ```
 
-Clearly we can see that two dataframes above are not the same. We can say that IMDB not just use the rankings. First thing that I realized is there is not any movie created by 1996, so IMDb cares the creation date and older movies are not lucky in this ranking calculation.
+Clearly we can see that two dataframes above are not the same. We can say that IMDB not just use the rankings. First thing that I realized is there is not any movie created by before the 1996, so IMDb cares the creation date and older movies are not lucky in this ranking calculation.
