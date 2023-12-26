@@ -256,6 +256,9 @@ yarly_count_plot
 ```{r, message=FALSE}
 corr_rating_vote = cor(movies_df$movie_ratings, movies_df$movie_votes)
 corr_rating_vote
+
+rating_vs_votes <- ggplot(movies_df, aes(x=movie_ratings, y=log(movie_votes))) + geom_point()
+rating_vs_votes
 ```
 
 > e)  
@@ -267,6 +270,10 @@ corr_rating_vote
 ```{r, message=FALSE}
 corr_duration_rating = cor(movies_df$movie_durations, movies_df$movie_ratings)
 corr_duration_rating
+
+duration_vs_rating <- ggplot(movies_df, aes(x=movie_durations, y=movie_ratings)) + geom_point()
+duration_vs_rating
+
 ```
 
 > f)  
